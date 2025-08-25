@@ -29,6 +29,8 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'fadeInUp': 'fadeInUp 1s ease-out',
+        'custom-slide-in-left': 'custom-slide-in-left 0.7s ease',
+        'custom-slide-in-right': 'custom-slide-in-right 0.7s ease',
       },
       keyframes: {
         float: {
@@ -44,6 +46,14 @@ export default {
             opacity: '1',
             transform: 'translateY(0)',
           },
+        },
+        'custom-slide-in-left': {
+          '0%': { transform: 'translateX(-60px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        'custom-slide-in-right': {
+          '0%': { transform: 'translateX(60px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
         },
       },
     },
