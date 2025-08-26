@@ -20,11 +20,16 @@ export default {
           cyan: '#00f5ff',
           red: '#ff6b6b',
           purple: '#764ba2',
+          lightBlue: '#e0f2fe',
+          darkBlue: '#1e40af',
         }
       },
       backgroundImage: {
         'hero-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
         'feature-gradient': 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)',
+        'medical-light': 'linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%)',
+        'medical-dark': 'linear-gradient(135deg, #1e40af 0%, #2563eb 100%)',
+        'glossy-blue': 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #2563eb 100%)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

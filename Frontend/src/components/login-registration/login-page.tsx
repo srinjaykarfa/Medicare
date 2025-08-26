@@ -4,12 +4,12 @@ import { Heart} from "lucide-react"
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-sky-50 to-blue-200 flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-light-medical flex flex-col items-center">
       {/* Header with Logo */}
       <div className="w-full max-w-4xl mx-auto pt-8 pb-12">
         <div className="flex items-center justify-center gap-3 group cursor-pointer">
           <Heart className="h-8 w-8 text-blue-400 transition-all duration-500 group-hover:scale-110 group-hover:text-blue-300 group-hover:drop-shadow-lg animate-pulse" />
-          <span className="text-2xl font-bold bg-gradient-to-r from-gray-800 via-blue-600 to-blue-400 bg-clip-text text-transparent transition-all duration-500 group-hover:scale-105 drop-shadow-lg">
+          <span className="text-2xl font-bold bg-gradient-to-r from-white via-blue-300 to-blue-400 bg-clip-text text-transparent transition-all duration-500 group-hover:scale-105 drop-shadow-lg">
             MediCare
           </span>
         </div>
@@ -38,7 +38,7 @@ export default function LoginPage() {
                       Welcome to MediCare
                     </h1>
 
-                    <p className="text-base font-medium text-emerald-300 animate-fade-up-delay-3">Healthcare Team</p>
+                    <p className="text-base font-medium bg-gradient-to-r from-blue-200 via-blue-300 to-blue-400 bg-clip-text text-transparent animate-fade-up-delay-3 drop-shadow-lg">Healthcare Team</p>
 
                     <p className="text-sm leading-relaxed text-gray-200 animate-fade-up-delay-4">
                       We're here to provide you with the best healthcare services. 
@@ -64,7 +64,7 @@ export default function LoginPage() {
       {/* Footer */}
       <div className="mt-8 text-center text-sm text-gray-500">
         Looking for better healthcare services? 
-        <a href="#" className="text-emerald-600 hover:text-emerald-700 ml-1">Try MediCare</a>
+        <a href="#" className="text-blue-600 hover:text-blue-700 ml-1">Try MediCare</a>
       </div>
     </div>
   )
