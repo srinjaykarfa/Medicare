@@ -335,4 +335,51 @@
       rgba(20, 184, 166, 0.35) 100%
     );
   }
+
+  /* Softer version for hero to reduce the blue cast ("blue wave") */
+  .bg-gradient-blue-teal-overlay-soft {
+    background: linear-gradient(
+      135deg,
+      rgba(14, 165, 233, 0.15) 0%,
+      rgba(29, 78, 216, 0.12) 50%,
+      rgba(20, 184, 166, 0.15) 100%
+    );
+  }
+
+  /* Slide-in left/right keyframes and utilities for login page */
+  @keyframes fadeSlideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  @keyframes fadeSlideRight {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-slide-left {
+    animation: fadeSlideLeft 0.7s ease-out both;
+  }
+  .animate-fade-slide-right {
+    animation: fadeSlideRight 0.7s ease-out both;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-slide-left,
+    .animate-fade-slide-right {
+      animation: none;
+    }
+  }
 }

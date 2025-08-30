@@ -1,4 +1,4 @@
-import { FileText, Search, Filter, Plus } from 'lucide-react';
+import { FileText, Search, Filter, Plus } from "lucide-react"
 
 export default function PatientRecords() {
   return (
@@ -6,12 +6,12 @@ export default function PatientRecords() {
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-clip-text text-transparent mb-2 drop-shadow-lg">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-teal-500 to-teal-600 bg-clip-text text-transparent mb-2 drop-shadow-lg">
             Medical Records
           </h1>
           <p className="text-gray-600">Access and manage your medical history</p>
         </div>
-        <button className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl hover:from-green-600 hover:to-green-700 transition-all flex items-center gap-2 shadow-lg">
+        <button className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all flex items-center gap-2 shadow-lg">
           <Plus className="w-5 h-5" />
           Add Record
         </button>
@@ -21,9 +21,9 @@ export default function PatientRecords() {
       <div className="flex gap-4 mb-6">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-          <input 
-            type="text" 
-            placeholder="Search records..." 
+          <input
+            type="text"
+            placeholder="Search records..."
             className="w-full pl-10 pr-4 py-3 bg-white/80 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
           />
         </div>
@@ -41,7 +41,9 @@ export default function PatientRecords() {
             <FileText className="w-8 h-8 text-green-600" />
           </div>
           <h3 className="text-xl font-semibold text-gray-800 mb-2">No medical records found</h3>
-          <p className="text-gray-600 mb-6">Your medical records will appear here once they are uploaded by your healthcare providers.</p>
+          <p className="text-gray-600 mb-6">
+            Your medical records will appear here once they are uploaded by your healthcare providers.
+          </p>
           <button className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-xl hover:from-green-600 hover:to-green-700 transition-all">
             Request Records
           </button>
@@ -78,5 +80,5 @@ export default function PatientRecords() {
         */}
       </div>
     </div>
-  );
+  )
 }

@@ -1,45 +1,29 @@
+import { Routes, Route, Navigate } from "react-router-dom"
+import LoginPage from "./components/login-registration/login-page"
+import RegistrationPage from "./components/login-registration/registration-page"
 
-import { Routes, Route } from "react-router-dom";
-import { HeroSection } from "./components/hero-section";
-import { ServicesSection } from "./components/services-section";
-import { TestimonialsSection } from "./components/testimonials-section";
-import { MedicalHeader } from "./components/medical-header";
-import { MedicalFooter } from "./components/medical-footer";
-import LoginPage from "./components/login-registration/login-page";
-import RegistrationPage from "./components/login-registration/registration-page";
+import PatientLayout from "./components/patient/PatientLayout"
+import PatientLanding from "./components/patient/PatientLanding"
+import PatientAppointments from "./components/patient/appointments/PatientAppointments"
+import PatientRecords from "./components/patient/PatientRecords"
+import PatientProfile from "./components/patient/PatientProfile"
+import PatientHealth from "./components/patient/PatientHealth"
 
-import PatientLayout from "./components/patient/PatientLayout";
-import PatientDashboard from "./components/patient/PatientDashboard";
-import PatientAppointments from "./components/patient/appointments/PatientAppointments";
-import PatientRecords from "./components/patient/PatientRecords";
-import PatientProfile from "./components/patient/PatientProfile";
-import PatientHealth from "./components/patient/PatientHealth";
-
-import DoctorLayout from "./components/doctor/DoctorLayout";
-import DoctorDashboard from "./components/doctor/DoctorDashboard";
-import DoctorAppointments from "./components/doctor/DoctorAppointments";
-import DoctorProfile from "./components/doctor/DoctorProfile";
+import DoctorLayout from "./components/doctor/DoctorLayout"
+import DoctorDashboard from "./components/doctor/DoctorDashboard"
+import DoctorAppointments from "./components/doctor/DoctorAppointments"
+import DoctorProfile from "./components/doctor/DoctorProfile"
 
 export default function AppRoutes() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            <MedicalHeader />
-            <HeroSection />
-            <ServicesSection />
-            <TestimonialsSection />
-            <MedicalFooter />
-          </>
-        }
-      />
+      <Route path="/" element={<Navigate to="/patient" replace />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegistrationPage />} />
       <Route path="/patient" element={<PatientLayout />}>
-        <Route index element={<PatientDashboard />} />
-        <Route path="dashboard" element={<PatientDashboard />} />
+        <Route index element={<PatientLanding />} />
+        <Route path="home" element={<PatientLanding />} />
+        <Route path="dashboard" element={<Navigate to="/patient" replace />} />
         <Route path="appointments" element={<PatientAppointments />} />
         <Route path="records" element={<PatientRecords />} />
         <Route path="health" element={<PatientHealth />} />
@@ -54,5 +38,5 @@ export default function AppRoutes() {
         <Route path="profile" element={<DoctorProfile />} />
       </Route>
     </Routes>
-  );
+  )
 }

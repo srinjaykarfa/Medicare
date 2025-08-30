@@ -1,19 +1,19 @@
-import PatientSidebar from './PatientSidebar';
-import PatientNavbar from './PatientNavbar';
-import { Outlet } from 'react-router-dom';
+import PatientSidebar from "./PatientSidebar"
+import PatientNavbar from "./PatientNavbar"
+import { Outlet } from "react-router-dom"
 
 export default function PatientLayout() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100">
-      <div className="flex">
-        <PatientSidebar />
-        <div className="flex-1 flex flex-col min-h-screen">
-          <PatientNavbar />
-          <main className="flex-1 p-8 bg-gradient-to-br from-blue-50/30 via-white/80 to-blue-100/30 overflow-y-auto">
-            <Outlet />
-          </main>
-        </div>
+    <div className="min-h-screen bg-white">
+      {/* Fixed sidebar sits on top-left */}
+      <PatientSidebar />
+      {/* Content shifts right by sidebar width so nothing is hidden */}
+      <div className="relative z-10 min-h-screen flex flex-col pl-80">
+        <PatientNavbar />
+        <main className="flex-1 overflow-y-auto">
+          <Outlet />
+        </main>
       </div>
     </div>
-  );
+  )
 }

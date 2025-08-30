@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link, useNavigate } from "react-router-dom"
 import authService from "@/services/authService"
 
-export function LoginForm() {
+export function LoginForm({ onReanimate }: { onReanimate?: () => void }) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isLoading, setIsLoading] = useState(false)
@@ -19,24 +19,21 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    onReanimate?.()
     setIsLoading(true)
     setError("")
 
     try {
       const response = await authService.login({ email, password })
       if (response.success) {
-        // Get user role from localStorage (set by authService)
         const userStr = localStorage.getItem("user")
         let role = ""
         if (userStr) {
           try {
             const user = JSON.parse(userStr)
             role = user.role
-          } catch {
-            // Ignore JSON parse error
-          }
+          } catch {}
         }
-        // Redirect based on role
         if (role === "patient") {
           navigate("/patient/dashboard")
         } else if (role === "doctor") {
@@ -111,6 +108,7 @@ export function LoginForm() {
             </div>
             <Button
               type="submit"
+              onClick={() => onReanimate?.()}
               className="w-full bg-gradient-to-r from-sky-600 to-teal-500 text-white shadow-sm hover:from-sky-700 hover:to-teal-600 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-teal-500 transition-transform duration-200 hover:scale-[1.01]"
               disabled={isLoading}
             >
@@ -118,7 +116,7 @@ export function LoginForm() {
             </Button>
           </form>
           <div className="mt-6 text-center text-sm text-slate-600">
-            Don't have an account?{" "}
+            {"Don't have an account?"}{" "}
             <Link to="/register" className="text-teal-600 hover:text-teal-700 font-medium">
               Sign up
             </Link>
