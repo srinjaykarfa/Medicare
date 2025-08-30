@@ -71,8 +71,8 @@ export function Registration() {
       const response = await authService.register(registerData)
       
       if (response.success) {
-        // Registration successful, redirect to dashboard or home
-        navigate('/')
+        // Registration successful, redirect to dashboard
+        navigate('/patient/dashboard')
       }
     } catch (error: unknown) {
       if (error && typeof error === 'object' && 'message' in error) {
@@ -116,8 +116,8 @@ export function Registration() {
       const response = await authService.register(registerData)
       
       if (response.success) {
-        // Registration successful, redirect to dashboard or home
-        navigate('/')
+        // Registration successful, redirect to dashboard
+        navigate('/doctor/dashboard')
       }
     } catch (error: unknown) {
       if (error && typeof error === 'object' && 'message' in error) {

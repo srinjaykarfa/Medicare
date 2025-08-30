@@ -7,12 +7,18 @@ import { MedicalHeader } from "./components/medical-header";
 import { MedicalFooter } from "./components/medical-footer";
 import LoginPage from "./components/login-registration/login-page";
 import RegistrationPage from "./components/login-registration/registration-page";
+
 import PatientLayout from "./components/patient/PatientLayout";
 import PatientDashboard from "./components/patient/PatientDashboard";
-import PatientAppointments from "./components/patient/PatientAppointments";
+import PatientAppointments from "./components/patient/appointments/PatientAppointments";
 import PatientRecords from "./components/patient/PatientRecords";
 import PatientProfile from "./components/patient/PatientProfile";
 import PatientHealth from "./components/patient/PatientHealth";
+
+import DoctorLayout from "./components/doctor/DoctorLayout";
+import DoctorDashboard from "./components/doctor/DoctorDashboard";
+import DoctorAppointments from "./components/doctor/DoctorAppointments";
+import DoctorProfile from "./components/doctor/DoctorProfile";
 
 export default function AppRoutes() {
   return (
@@ -38,6 +44,14 @@ export default function AppRoutes() {
         <Route path="records" element={<PatientRecords />} />
         <Route path="health" element={<PatientHealth />} />
         <Route path="profile" element={<PatientProfile />} />
+      </Route>
+
+      {/* Doctor Panel Routes */}
+      <Route path="/doctor" element={<DoctorLayout />}>
+        <Route index element={<DoctorDashboard />} />
+        <Route path="dashboard" element={<DoctorDashboard />} />
+        <Route path="appointments" element={<DoctorAppointments />} />
+        <Route path="profile" element={<DoctorProfile />} />
       </Route>
     </Routes>
   );

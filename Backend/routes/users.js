@@ -1,8 +1,43 @@
+
 const express = require('express');
 const User = require('../models/User');
 const { protect, authorize } = require('../middleware/auth');
 
 const router = express.Router();
+
+// @desc    Verify a doctor (Admin only)
+// @route   PUT /api/users/:id/verify
+// @access  Private/Admin
+router.put('/:id/verify', protect, authorize('admin'), async (req, res) => {
+  try {
+    let user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: 'User not found'
+      });
+    }
+    if (user.role !== 'doctor') {
+      return res.status(400).json({
+        success: false,
+        message: 'User is not a doctor'
+      });
+    }
+    user.isVerified = true;
+    await user.save();
+    res.status(200).json({
+      success: true,
+      message: 'Doctor verified successfully',
+      data: user
+    });
+  } catch (error) {
+    console.error('Verify doctor error:', error);
+    res.status(500).json({
+      success: false,
+      message: 'Server error verifying doctor'
+    });
+  }
+});
 
 // @desc    Get all users (Admin only)
 // @route   GET /api/users
@@ -33,9 +68,7 @@ router.get('/doctors', async (req, res) => {
     const { specialization, page = 1, limit = 10 } = req.query;
     
     let query = { 
-      role: 'doctor', 
-      isActive: true, 
-      isVerified: true 
+      role: 'doctor'
     };
     
     if (specialization) {
